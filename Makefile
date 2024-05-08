@@ -3,3 +3,6 @@ start:
 
 publish:
 	npm publish --dry-runs
+
+lint:
+	npx eslint .
