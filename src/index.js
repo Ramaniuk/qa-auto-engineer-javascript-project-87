@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 import { readFileSync } from 'node:fs';
 import _ from 'lodash';
+import * as path from 'path';
+
+const getPath = (fileName) => {
+    const filePath = path.resolve(`__fixtures__/${fileName}`);
+    return filePath;
+};
 
 // const workingDirectoty = process.cwd();
 const convertJsonToObject = (filePath) => {
@@ -17,6 +23,10 @@ function getAllKeysFromObjectsSorted(object1, object2) {
 };
 
 function genDiff(filePath1, filePath2){
+    
+    // const filePath1 = getPath(fileName1);
+    // const filePath2 = getPath(fileName2);
+
     const file1 = convertJsonToObject(filePath1);
     const file2 = convertJsonToObject(filePath2);
 
