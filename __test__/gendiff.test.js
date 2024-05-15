@@ -8,9 +8,12 @@ const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.resolve(__dirname, '..', '__fixtures__', filename);
 
-const fileJson1 = getFixturePath('file1.json');
-const fileJson2 = getFixturePath('file2.json');
+const extension = ['json', 'yalm'];
 
-test('test for json files', () => {
-    expect(genDiff(fileJson1, fileJson2)).toBe('{\n - follow: false\n   host: hexlet.io\n - proxy: 123.234.53.22\n - timeout: 50\n + timeout: 20\n + verbose: true\n\n}');
-});
+extension.forEach(fileName => {
+    const file1 = getFixturePath(`file1.${fileName}`);
+    const file2 = getFixturePath(`file2.${fileName}`);
+    test(`test for ${fileName} files`, () => {
+        expect(genDiff(file1, file2)).toBe('{\n - follow: false\n   host: hexlet.io\n - proxy: 123.234.53.22\n - timeout: 50\n + timeout: 20\n + verbose: true\n\n}');
+    });
+})

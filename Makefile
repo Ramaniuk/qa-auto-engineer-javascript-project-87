@@ -10,5 +10,5 @@ publish:
 lint:
 	npx eslint .
 
-jest:
-    NODE_OPTIONS=--experimental-vm-modules npx jest --watch
+test:
+    NODE_OPTIONS=--experimental-vm-modules npx jest --watch --coverage
