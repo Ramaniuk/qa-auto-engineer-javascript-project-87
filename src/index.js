@@ -1,19 +1,6 @@
 #!/usr/bin/env node
-import { readFileSync } from 'node:fs';
 import _ from 'lodash';
-import * as path from 'path';
-
-const getPath = (fileName) => {
-    const filePath = path.resolve(`__fixtures__/${fileName}`);
-    return filePath;
-};
-
-// const workingDirectoty = process.cwd();
-const convertJsonToObject = (filePath) => {
-    const file = readFileSync(filePath, "utf8");
-    const object = JSON.parse(file);
-    return object;
-};
+import { convertFileToObject } from './parsers';
 
 function getAllKeysFromObjectsSorted(object1, object2) {
     const allKeys = Object.keys(object1).concat(Object.keys(object2));
@@ -24,11 +11,8 @@ function getAllKeysFromObjectsSorted(object1, object2) {
 
 function genDiff(filePath1, filePath2){
     
-    // const filePath1 = getPath(fileName1);
-    // const filePath2 = getPath(fileName2);
-
-    const file1 = convertJsonToObject(filePath1);
-    const file2 = convertJsonToObject(filePath2);
+    const file1 = convertFileToObject(filePath1);
+    const file2 = convertFileToObject(filePath2);
 
     const allSortedKeys = getAllKeysFromObjectsSorted(file1, file2);
 
@@ -48,6 +32,7 @@ function genDiff(filePath1, filePath2){
     }
     resultString = `{\n${resultString}\n}`;
     console.log(resultString);
+    
     return resultString;
 };
 
