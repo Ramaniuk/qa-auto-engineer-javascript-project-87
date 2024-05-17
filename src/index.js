@@ -23,14 +23,14 @@ function genDiff(file1, file2){
     for (let i = 0; i < allSortedKeys.length; i += 1){
         const key = allSortedKeys[i];
         if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key) && fileObject1[key] !== fileObject2[key]) {
-            resultString += ` - ${key}: ${fileObject1[key]}\n`
-            resultString += ` + ${key}: ${fileObject2[key]}\n`
+            resultString += `   - ${key}: ${fileObject1[key]}\n`
+            resultString += `   + ${key}: ${fileObject2[key]}\n`
         } else if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
             resultString += `   ${key}: ${fileObject1[key]}\n`
         } else if (Object.hasOwn(fileObject1, key) && !Object.hasOwn(fileObject2, key)) {
-            resultString += ` - ${key}: ${fileObject1[key]}\n`
+            resultString += `   - ${key}: ${fileObject1[key]}\n`
         } else if (!Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
-            resultString += ` + ${key}: ${fileObject2[key]}\n`
+            resultString += `   + ${key}: ${fileObject2[key]}\n`
         }
     }
     resultString = `{\n${resultString}}`;
