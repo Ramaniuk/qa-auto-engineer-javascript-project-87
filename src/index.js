@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import _ from 'lodash';
 import { convertFileToObject, getFixturePath } from './parsers.js';
-import { formatter } from '../formatters/index.js'
+import { formatter } from './formatters/index.js'
 
 function getAllKeysFromObjectsSorted(object1, object2) {
     const allKeys = Object.keys(object1).concat(Object.keys(object2));
