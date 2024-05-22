@@ -10,8 +10,8 @@ program
     .argument('<file2>')
     .option('-V, --version', 'output the version number')
     .option('-f, --format <type>', 'output format')
-    .action((file1, file2) => {
-           genDiff(file1, file2); 
+    .action((file1, file2, format) => {
+           genDiff(file1, file2, format); 
       });
   
 program.parse();

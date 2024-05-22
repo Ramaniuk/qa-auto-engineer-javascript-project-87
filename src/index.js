@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import _ from 'lodash';
 import { convertFileToObject, getFixturePath } from './parsers.js';
+import { formatter } from '../formatters/index.js'
 
 function getAllKeysFromObjectsSorted(object1, object2) {
     const allKeys = Object.keys(object1).concat(Object.keys(object2));
@@ -9,8 +10,7 @@ function getAllKeysFromObjectsSorted(object1, object2) {
     return sortedArray;
 };
 
-function genDiff(file1, file2){
-
+function genDiff(file1, file2, formatName = 'json'){
     const filePath1 = getFixturePath(file1);
     const filePath2 = getFixturePath(file2);
 
@@ -33,9 +33,11 @@ function genDiff(file1, file2){
             resultString += `  + ${key}: ${fileObject2[key]}\n`
         }
     }
-    resultString = `{\n${resultString}}`;
-    console.log(resultString);
-    return resultString;
+    // console.log(resultString);
+    const resultStringFormatted = formatter(formatName, resultString);
+    console.log(resultStringFormatted);
+
+    return resultStringFormatted;
 };
 
 export default genDiff;
