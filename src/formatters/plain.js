@@ -9,7 +9,6 @@ const plain = (str) => {
       result = [...result.slice(0, -1), `Property '${slicedKey}' was updated. From ${obj[slicedKey]} to ${value}`];
     } else if (el.includes('-')) {
       result = [...result, `Property '${slicedKey}' was removed`];
-      console.log(result)
     } else if (el.includes('+')) {
       result = [...result,`Property '${slicedKey}' was added with value: ${value}`];
     }
