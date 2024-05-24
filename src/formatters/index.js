@@ -7,7 +7,7 @@ const formatter = (formatName, result) => {
   } if (formatName === 'json') {
     return json(result);
   }
-    return result;
+  return result;
 };
 
 export default formatter;
