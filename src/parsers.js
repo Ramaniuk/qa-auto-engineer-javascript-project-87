@@ -14,12 +14,7 @@ export const convertFileToObject = (filePath) => {
   const format = path.extname(filePath);
   const data = readFileSync(filePath, 'utf8');
   // choose parser depending on file extension
-  let parse;
-  if (format === '.json') {
-    parse = JSON.parse;
-  } else if (format === '.yml' || format === '.yaml') {
-    parse = yaml.load;
-  }
+  const parse = (format === '.json') ? JSON.parse : yaml.load;
   // parse(data);
   const object = parse(data);
   return object;
