@@ -1,4 +1,4 @@
-const plain = (str) => { 
+const plain = (str) => {
   const arr = str.split('\n');
   const result = [];
   const obj = {};
@@ -16,7 +16,7 @@ const plain = (str) => {
       result.push(`Property '${key}' was added with value: ${value}`);
     }
     obj[key] = value;
-});
+  });
   return result.join('\n');
 };
 

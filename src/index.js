@@ -10,7 +10,7 @@ function getAllKeysFromObjectsSorted(object1, object2) {
   return sortedArray;
 }
 
-function genDiff (file1, file2, formatName = 'stylish'){
+function genDiff(file1, file2, formatName = 'stylish') {
   const filePath1 = getFixturePath(file1);
   const filePath2 = getFixturePath(file2);
 
@@ -22,7 +22,8 @@ function genDiff (file1, file2, formatName = 'stylish'){
   const resultObj = {};
   for (let i = 0; i < allSortedKeys.length; i += 1) {
     const key = allSortedKeys[i];
-    if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key) && fileObject1[key] !== fileObject2[key]) {
+    if (Object.hasOwn(fileObject1, key) && 
+    Object.hasOwn(fileObject2, key) && fileObject1[key] !== fileObject2[key]) {
       resultObj[`- ${key}`] = fileObject1[key];
       resultObj[`+ ${key}`] = fileObject2[key];
     } else if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
