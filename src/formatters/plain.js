@@ -10,7 +10,7 @@ const plain = (str) => {
     } else if (el.includes('-')) {
       result = [...result, `Property '${slicedKey}' was removed`];
     } else if (el.includes('+')) {
-      result = [...result,`Property '${slicedKey}' was added with value: ${value}`];
+      result = [...result, `Property '${slicedKey}' was added with value: ${value}`];
     }
     obj[slicedKey] = value;
   });
