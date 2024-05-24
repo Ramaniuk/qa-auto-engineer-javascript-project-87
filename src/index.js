@@ -10,7 +10,7 @@ function getAllKeysFromObjectsSorted(object1, object2) {
     return sortedArray;
 };
 
-function genDiff(file1, file2, formatName = 'pretty'){
+function genDiff(file1, file2, formatName = 'stylish'){
     const filePath1 = getFixturePath(file1);
     const filePath2 = getFixturePath(file2);
 
