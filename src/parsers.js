@@ -13,7 +13,7 @@ export const convertFileToObject = (filePath) => {
   // extname returns: '.html'
   const format = path.extname(filePath);
   const data = readFileSync(filePath, 'utf8');
-  // Выбop парсерa в зависимости от расширения файла
+  // choose parser depending on file extension
   let parse;
   if (format === '.json') {
     parse = JSON.parse;
