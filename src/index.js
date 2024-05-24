@@ -10,7 +10,7 @@ function getAllKeysFromObjectsSorted(object1, object2) {
     return sortedArray;
 };
 
-function genDiff(file1, file2, formatName = 'json'){
+function genDiff(file1, file2, formatName = 'pretty'){
     const filePath1 = getFixturePath(file1);
     const filePath2 = getFixturePath(file2);
 
@@ -19,25 +19,31 @@ function genDiff(file1, file2, formatName = 'json'){
 
     const allSortedKeys = getAllKeysFromObjectsSorted(fileObject1, fileObject2);
 
-    let resultString = '';
+    let resultObj = {};
     for (let i = 0; i < allSortedKeys.length; i += 1){
         const key = allSortedKeys[i];
         if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key) && fileObject1[key] !== fileObject2[key]) {
-            resultString += `  - ${key}: ${fileObject1[key]}\n`
-            resultString += `  + ${key}: ${fileObject2[key]}\n`
+            resultObj[`- ${key}`] = fileObject1[key];
+            resultObj[`+ ${key}`] = fileObject2[key];
         } else if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
-            resultString += `    ${key}: ${fileObject1[key]}\n`
+            resultObj[`  ${key}`] = fileObject1[key];
         } else if (Object.hasOwn(fileObject1, key) && !Object.hasOwn(fileObject2, key)) {
-            resultString += `  - ${key}: ${fileObject1[key]}\n`
+            resultObj[`- ${key}`]  = fileObject1[key];
         } else if (!Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
-            resultString += `  + ${key}: ${fileObject2[key]}\n`
+            resultObj[`+ ${key}`] = fileObject2[key];
         }
     }
-    // console.log(resultString);
-    const resultStringFormatted = formatter(formatName, resultString);
-    console.log(resultStringFormatted);
 
-    return resultStringFormatted;
+    let strFromObj = '';
+    for (const [key, value] of Object.entries(resultObj)) {
+        strFromObj += `  ${key}: ${value}\n`;
+    }
+    const resultStrFromObj = `{\n${strFromObj}}`
+
+    const resultObjFormatted = formatter(formatName, resultStrFromObj);
+    console.log(resultObjFormatted);
+    
+    return resultObjFormatted;
 };
 
 export default genDiff;

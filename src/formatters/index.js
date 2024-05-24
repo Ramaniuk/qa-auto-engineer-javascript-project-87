@@ -2,11 +2,13 @@ import { plain } from './plain.js';
 import { json } from './json.js';
 
 
-export const formatter = (formatName, resultString) => {
-    if (formatName.format === 'plain' || formatName === 'plain' ) {
-        return plain(resultString);
-    } else {
-        return json(resultString);
+export const formatter = (formatName, result) => {
+    if (formatName === 'plain' ) {
+        return plain(result);
+    } else if (formatName === 'json') {
+        return json(result)
+    } else if (formatName === 'pretty') {
+        return result;
     }
 };
 
