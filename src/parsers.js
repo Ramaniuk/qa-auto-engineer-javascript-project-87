@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 export const getFixturePath = (filename) => path.resolve(__dirname, '..', '__fixtures__', filename);
 
 export const convertFileToObject = (filePath) => {
-    // extname returns: '.html'
+  // extname returns: '.html'
   const format = path.extname(filePath);
   const data = readFileSync(filePath, 'utf8');
   // Выбop парсерa в зависимости от расширения файла
@@ -23,4 +23,4 @@ export const convertFileToObject = (filePath) => {
   // parse(data);
   const object = parse(data);
   return object;
-}
+};
