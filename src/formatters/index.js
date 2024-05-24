@@ -6,9 +6,8 @@ const formatter = (formatName, result) => {
     return plain(result);
   } if (formatName === 'json') {
     return json(result);
-  } if (formatName === 'stylish') {
-    return result;
   }
+    return result;
 };
 
 export default formatter;
