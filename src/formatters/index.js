@@ -1,8 +1,7 @@
-import { plain } from './plain.js';
-import { json } from './json.js';
+import plain from './plain.js';
+import json from './json.js';
 
-
-export const formatter = (formatName, result) => {
+const formatter = (formatName, result) => {
     if (formatName === 'plain' ) {
         return plain(result);
     } else if (formatName === 'json') {
@@ -12,3 +11,4 @@ export const formatter = (formatName, result) => {
     }
 };
 
+export default formatter;
