@@ -6,10 +6,9 @@ export const plain = (str) => {
     const obj = {};
 
     arr.forEach(el => {
-        const arr = el.split(': ')
-        console.log(arr)
+        const arr = el.split(': ');
+        
         const key = arr[0].slice(4);
-        // console.log(key)
         const value = arr[1];
         
         if ((el.includes('-') || el.includes('+')) && Object.hasOwn(obj, key)) {
