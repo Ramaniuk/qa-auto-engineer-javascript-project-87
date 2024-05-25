@@ -24,24 +24,24 @@ function genDiff(file1, file2, formatName = 'stylish') {
     && Object.hasOwn(fileObject2, key) && fileObject1[key] !== fileObject2[key]) {
       return {
         ...acc,
-        [`- ${key}`] : fileObject1[key],
+        [`- ${key}`]: fileObject1[key],
         [`+ ${key}`]: fileObject2[key],
-      }
-    } else if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
+      };
+    } if (Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
       return {
         ...acc,
         [`  ${key}`]: fileObject1[key],
-      }
-    } else if (Object.hasOwn(fileObject1, key) && !Object.hasOwn(fileObject2, key)) {
+      };
+    } if (Object.hasOwn(fileObject1, key) && !Object.hasOwn(fileObject2, key)) {
       return {
         ...acc,
         [`- ${key}`]: fileObject1[key],
-      }
-    } else if (!Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
+      };
+    } if (!Object.hasOwn(fileObject1, key) && Object.hasOwn(fileObject2, key)) {
       return {
         ...acc,
         [`+ ${key}`]: fileObject2[key],
-      }
+      };
     }
     console.log(resultObj);
   }, {});
