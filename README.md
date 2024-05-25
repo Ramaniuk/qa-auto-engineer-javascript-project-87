@@ -5,4 +5,4 @@
 
 [![Build Status](https://app.travis-ci.com/Ramaniuk/qa-auto-engineer-javascript-project-87.svg?token=sY4a248xsHfzPB5nsRNy&branch=main)](https://app.travis-ci.com/Ramaniuk/qa-auto-engineer-javascript-project-87)
 
-https://asciinema.org/a/nCx2bNmBXEp6p2qNpQNpfvIQZ
+https://asciinema.org/a/jSfHuBmbfjFiLLv1elezShpNz
