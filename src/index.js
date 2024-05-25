@@ -43,7 +43,7 @@ function genDiff(file1, file2, formatName = 'stylish') {
         [`+ ${key}`]: fileObject2[key],
       };
     }
-    console.log(resultObj);
+    return acc;
   }, {});
 
   const strFromObj = Object.entries(resultObj).map(([key, value]) => (`  ${key}: ${value}\n`)).join('');
